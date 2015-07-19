@@ -109,3 +109,10 @@ exports.admin = function(req, res, next) {
   });
 
 }
+
+exports.angularShow = function(req, res, next) {
+  req.collections.articles.find({},{sort: {_id:-1}}).toArray(function(error, articles) {
+    if (error) return next(error);
+    res.render('angular/angularAdmin',{articles:articles});
+  });
+};

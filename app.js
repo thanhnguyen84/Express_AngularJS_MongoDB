@@ -97,6 +97,10 @@ app.get('/post', authorize, routes.article.post);
 app.post('/post', authorize, routes.article.postArticle);
 app.get('/articles/:slug', routes.article.show);
 
+//PAGES&ROUTES FOR ANGULAR VIEW
+app.get('/Angular/:page', authorize, routes.article.angularShow);
+
+
 //REST API ROUTES
 app.all('/api', authorize);
 app.get('/api/articles', routes.article.list)
